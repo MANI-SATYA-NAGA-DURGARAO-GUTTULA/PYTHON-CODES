@@ -1,0 +1,21 @@
+import math
+n=int(input())#30
+x=int(math.sqrt(n))#5
+sieve=[]                                                                                                                                                    
+for i in range(0,n+1):#   0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  17 18 19 20 21 22 23 24 25 26 27 28 29 30
+    sieve.append(1)   #    0 0 1 1 0 1 0 1 0 0  0  1   0   1   0    0   0   1   0   1   0   0  0   1   0  0   0   0   0   1  0
+sieve[0]=0
+sieve[1]=0
+p=2
+while(p<=x):#where x is sqrt of n   #p=6<=5
+    if sieve[p]==1:
+        for j in range(p*p,n+1,p):#j=25<31
+            sieve[j]=0
+    p=p+1
+c=0
+for i in range(1,n+1):
+    if sieve[i]==1:
+        print(i,end=' ')
+        c=c+1
+print()
+print('Total Prime numbers:',c)
