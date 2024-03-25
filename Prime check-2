@@ -1,0 +1,17 @@
+n=10000
+sieve=[1]*(n+1)
+sieve[0]=0
+sieve[1]=0
+p=2
+while p*p<=n:
+    if sieve[p]==1:
+        for j in range(p*p,n+1,p):
+            sieve[j]=0
+    p=p+1
+    
+N=int(input())
+
+if sieve[N]:
+    print(1)
+else:
+    print(0)
